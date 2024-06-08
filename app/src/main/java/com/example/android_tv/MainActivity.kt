@@ -11,7 +11,8 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.tv.material3.ExperimentalTvMaterial3Api
 import androidx.tv.material3.Surface
-import com.example.android_tv.screens.QrScreen
+import com.example.android_tv.screens.home.HomeScreen
+import com.example.android_tv.screens.qr.QrScreen
 import com.example.android_tv.ui.theme.AndroidtvTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,7 +21,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AndroidtvTheme {
-                QrScreen()
+                HomeScreen()
             }
         }
     }
