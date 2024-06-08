@@ -10,10 +10,10 @@ import androidx.tv.material3.lightColorScheme
 @OptIn(ExperimentalTvMaterial3Api::class)
 @Composable
 fun AndroidtvTheme(
-    isInDarkTheme: Boolean = isSystemInDarkTheme(),
+    isDarkTheme: Boolean = false,
     content: @Composable () -> Unit,
 ) {
-    val colorScheme = if (isInDarkTheme) {
+    val colorScheme = if (isDarkTheme) {
         darkColorScheme(
             primary = Purple80,
             secondary = PurpleGrey80,
