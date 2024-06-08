@@ -24,7 +24,7 @@ fun AppNavigation(navController: NavHostController) {
         composable(
             Screens.Qr.title,
         ) {
-            QrScreen()
+            QrScreen(navController)
         }
 
         composable(

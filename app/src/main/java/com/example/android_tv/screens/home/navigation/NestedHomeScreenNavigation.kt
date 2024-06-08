@@ -23,7 +23,7 @@ fun NestedHomeScreenNavigation(
             NestedScreens.Home.title,
             enterTransition = { tabEnterTransition() },
             exitTransition = { tabExitTransition() }) {
-            HomeNestedScreen()
+            HomeNestedScreen(navController)
         }
 
         composable(
