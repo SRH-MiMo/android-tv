@@ -1,6 +1,7 @@
 package com.example.android_tv.screens
 
 import android.os.Build
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -23,6 +24,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Devices
@@ -48,6 +50,8 @@ import com.example.android_tv.widgets.TvButton
 @OptIn(ExperimentalTvMaterial3Api::class)
 @Composable
 fun QrScreen() {
+    val context = LocalContext.current
+
     Surface {
         Row(
             modifier = Modifier
@@ -89,10 +93,13 @@ fun QrScreen() {
                         .height(50.dp)
                         .background(
                             brush = Brush.verticalGradient(listOf(Purple80, Pink80)),
+
                             shape = RectangleShape
                         )
                         .padding(14.5.dp),
-                    onClick = {},
+                    onClick = {
+                        Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show()
+                    },
                     borderRadius = 8.dp,
 
                     ) {

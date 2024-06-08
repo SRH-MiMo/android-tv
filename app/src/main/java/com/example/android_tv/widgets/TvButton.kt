@@ -35,7 +35,7 @@ fun TvButton(
     scale: ClickableSurfaceScale = ClickableSurfaceDefaults.scale(focusedScale = 1.1f),
     color: ClickableSurfaceColors = ClickableSurfaceDefaults.colors(
         containerColor = Color.Transparent,
-        focusedContainerColor = colorScheme.surface,
+        focusedContainerColor = Color.Transparent,
         contentColor = colorScheme.surface,
         focusedContentColor = colorScheme.onSurface
     ),
@@ -43,7 +43,7 @@ fun TvButton(
         focusedBorder = Border(
             BorderStroke(
                 width = 2.dp,
-                color = colorScheme.surface
+                color = Color.Transparent
             ),
             shape = RoundedCornerShape(borderRadius)
         )
