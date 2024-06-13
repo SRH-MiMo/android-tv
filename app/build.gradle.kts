@@ -48,7 +48,7 @@ android {
     }
 }
 
-dependencies {
+dependencies { 
 
 
     implementation(libs.androidx.core.ktx)
@@ -66,4 +66,6 @@ dependencies {
     implementation(libs.line.awesome.icons)
 
     implementation(libs.bundles.compose.accompanist)
+
+    implementation(libs.zxing.android.embedded)
 }
