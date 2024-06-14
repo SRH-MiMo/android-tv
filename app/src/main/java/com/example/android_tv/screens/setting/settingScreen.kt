@@ -46,7 +46,7 @@ fun SettingScreen() {
             modifier = Modifier
                 .fillMaxSize().padding(24.dp),
 
-            verticalArrangement = Arrangement.spacedBy(10.dp, Alignment.Top),
+            verticalArrangement = Arrangement.spacedBy(24.dp, Alignment.Top),
             horizontalAlignment = Alignment.Start,
 
         ) {
@@ -70,7 +70,9 @@ fun SettingScreen() {
 
             }
 
-            LogoutButton()
+            Column(modifier = Modifier.padding(6.dp)) {
+                LogoutButton()
+            }
 
 
         }
@@ -98,6 +100,10 @@ fun LogoutButton(){
         colors = ButtonDefaults.colors(
             containerColor = Color.Transparent,
             contentColor = Color.Black
+        ),
+        shape = ButtonDefaults.shape(
+            focusedShape = RoundedCornerShape(10.dp),
+
         ),
         onClick = { /*TODO*/ },
     ) {
