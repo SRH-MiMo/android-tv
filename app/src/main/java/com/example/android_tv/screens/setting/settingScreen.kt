@@ -33,21 +33,25 @@ import com.example.android_tv.ui.theme.Typography
 
 @Composable
 fun SettingScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White).padding(5.dp),
 
-        verticalArrangement = Arrangement.spacedBy(10.dp, Alignment.Top),
-        horizontalAlignment = Alignment.Start,
-    ) {
-
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .background(Color.White).padding(5.dp)) {
+        Box(
+            modifier = Modifier
+                .height(36.5.dp)
+                .fillMaxWidth()
+        )
         Column(
-            modifier = Modifier.padding(24.dp),
-            verticalArrangement = Arrangement.spacedBy(48.dp, Alignment.Top),
+            modifier = Modifier
+                .fillMaxSize().padding(24.dp),
+
+            verticalArrangement = Arrangement.spacedBy(10.dp, Alignment.Top),
             horizontalAlignment = Alignment.Start,
+
         ) {
             Column(
+                modifier = Modifier,
                 verticalArrangement = Arrangement.spacedBy(12.dp, Alignment.Top),
                 horizontalAlignment = Alignment.Start,
             ) {
@@ -63,32 +67,12 @@ fun SettingScreen() {
                         .height(1.dp)
                         .background(Color.Gray)
                 )
+
             }
 
-            Button(
+            LogoutButton()
 
-                modifier = Modifier
-                    .width(251.5.dp)
-                    .height(49.dp)
-                    .background(
 
-                        color = Color(0xFFEDEDED),
-                        shape = RoundedCornerShape(size = 10.dp)
-                    ),
-                colors = ButtonDefaults.colors(
-                    containerColor = Color.Transparent,
-                    contentColor = Color.Black
-                ),
-                onClick = { /*TODO*/ },
-            ) {
-                Text(
-                    modifier = Modifier.fillMaxWidth(),
-                    textAlign = TextAlign.Center,
-                    text = "로그 아웃",
-                    style = Typography.bodyMedium,
-                    fontSize = 12.5.sp
-                )
-            }
         }
 
     }
@@ -98,4 +82,32 @@ fun SettingScreen() {
 @Composable
 fun SettingScreenPreview() {
     SettingScreen()
+}
+
+@Composable
+fun LogoutButton(){
+    Button(
+
+        modifier = Modifier
+            .width(251.5.dp)
+            .height(49.dp)
+            .background(
+                color = Color(0xFFEDEDED),
+                shape = RoundedCornerShape(size = 10.dp)
+            ),
+        colors = ButtonDefaults.colors(
+            containerColor = Color.Transparent,
+            contentColor = Color.Black
+        ),
+        onClick = { /*TODO*/ },
+    ) {
+        Text(
+            modifier = Modifier.fillMaxWidth(),
+            textAlign = TextAlign.Center,
+            text = "로그 아웃",
+            style = Typography.bodyMedium,
+            fontSize = 12.5.sp
+        )
+
+    }
 }
