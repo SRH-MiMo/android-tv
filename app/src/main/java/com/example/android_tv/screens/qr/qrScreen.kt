@@ -1,5 +1,6 @@
 package com.example.android_tv.screens.qr
 
+import android.graphics.Bitmap
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -22,6 +23,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
@@ -39,6 +41,8 @@ import com.example.android_tv.ui.theme.Purple80
 import com.example.android_tv.ui.theme.PurpleGradient
 import com.example.android_tv.ui.theme.Typography
 import com.example.android_tv.widgets.TvButton
+import com.google.zxing.BarcodeFormat
+import com.journeyapps.barcodescanner.BarcodeEncoder
 
 
 @OptIn(ExperimentalTvMaterial3Api::class)
@@ -110,13 +114,7 @@ fun QrScreen(navController: NavController) {
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
 
-                Image(
-                    modifier = Modifier
-                        .width(250.dp)
-                        .height(250.dp),
-                    painter = painterResource(id = R.drawable.qr),
-                    contentDescription = "qr",
-                )
+                QrCode()
                 Text(
                     text = "유효시간 04:21 남음",
                     fontSize = 16.sp,
@@ -134,3 +132,14 @@ fun QrScreen(navController: NavController) {
 //fun QrPreView() {
 //    QrScreen(navController = )
 //}
+
+private fun generateBitmapQRCode(contents: String): Bitmap {
+    val barcodeEncoder = BarcodeEncoder()
+    return barcodeEncoder.encodeBitmap(contents, BarcodeFormat.QR_CODE, 512, 512)
+}
+
+@Composable
+fun QrCode(){
+    val bitmap = generateBitmapQRCode("https://stackoverflow.com/questions/55909804/duplicate-class-android-support-v4-app-inotificationsidechannel-found-in-modules")
+    Image(bitmap.asImageBitmap(), contentDescription = "qr")
+}
