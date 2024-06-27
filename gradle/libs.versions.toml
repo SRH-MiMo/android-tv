@@ -10,6 +10,8 @@ lifecycleRuntimeKtx = "2.8.0"
 activityCompose = "1.9.0"
 line_awesome = "1.0.0"
 accompanist = "0.31.0-alpha"
+zxing_android = "3.6.0"
+zxingAndroidEmbedded = "4.3.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -26,6 +28,7 @@ androidx-activity-compose = { group = "androidx.activity", name = "activity-comp
 line-awesome-icons = { module = "br.com.devsrsouza.compose.icons.android:line-awesome", version.ref = "line_awesome" }
 accompanist-navigation-animation = { module = "com.google.accompanist:accompanist-navigation-animation", version.ref = "accompanist" }
 accompanist-placeholder = { module = "com.google.accompanist:accompanist-placeholder", version.ref = "accompanist" }
+zxing-android-embedded = { module = "com.journeyapps:zxing-android-embedded", version.ref = "zxingAndroidEmbedded" }
 
 [bundles]
 compose-accompanist = [ "accompanist-navigation-animation", "accompanist-placeholder" ]

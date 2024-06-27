@@ -12,69 +12,76 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.tv.material3.Button
+import androidx.tv.material3.ButtonColors
+import androidx.tv.material3.ButtonDefaults
 import androidx.tv.material3.ExperimentalTvMaterial3Api
+import androidx.tv.material3.MaterialTheme
 import androidx.tv.material3.Text
 import com.example.android_tv.R
 import com.example.android_tv.ui.theme.Typography
 
 @Composable
 fun SettingScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White),
 
-        verticalArrangement = Arrangement.spacedBy(10.dp, Alignment.Top),
-        horizontalAlignment = Alignment.Start,
-    ) {
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .background(Color.White).padding(5.dp)) {
+        Box(
+            modifier = Modifier
+                .height(36.5.dp)
+                .fillMaxWidth()
+        )
         Column(
-            verticalArrangement = Arrangement.spacedBy(100.dp, Alignment.Top),
+            modifier = Modifier
+                .fillMaxSize().padding(24.dp),
+
+            verticalArrangement = Arrangement.spacedBy(24.dp, Alignment.Top),
             horizontalAlignment = Alignment.Start,
+
         ) {
             Row {
                 Image(painter = R.drawable.logo, contentDescription = "로고 이미지")
             }
             Column(
-                verticalArrangement = Arrangement.spacedBy(48.dp, Alignment.CenterVertically),
+                modifier = Modifier,
+                verticalArrangement = Arrangement.spacedBy(12.dp, Alignment.Top),
                 horizontalAlignment = Alignment.Start,
             ) {
-                Column(
-                    verticalArrangement = Arrangement.spacedBy(12.dp, Alignment.Top),
-                    horizontalAlignment = Alignment.Start,
-                ) {
-                    Text(
-                        text = "오디오",
-                        style = Typography.bodyMedium,
-                        fontSize = 12.5.sp
-                    )
+                Text(
+                    text = "계정",
+                    style = Typography.bodyMedium,
+                    fontSize = 12.5.sp
+                )
 
-                    Box(
-                        modifier = Modifier
-                            .width(500.dp)
-                            .height(1.dp)
-                            .background(Color.Gray)
-                    )
-                }
-                VolumeBar()
-                VolumeBar()
+                Box(
+                    modifier = Modifier
+                        .width(500.dp)
+                        .height(1.dp)
+                        .background(Color.Gray)
+                )
+
             }
 
-            Column(
-                verticalArrangement = Arrangement.spacedBy(48.dp, Alignment.Top),
-                horizontalAlignment = Alignment.Start,
-            ) {
-                // Child views.
+            Column(modifier = Modifier.padding(6.dp)) {
+                LogoutButton()
             }
+
+
         }
+
     }
 }
 
@@ -85,18 +92,33 @@ fun SettingScreenPreview() {
 }
 
 @Composable
-fun VolumeBar() {
-    Row(
-        horizontalArrangement = Arrangement.spacedBy(48.dp, Alignment.Start),
-        verticalAlignment = Alignment.CenterVertically,
+fun LogoutButton(){
+    Button(
+
+        modifier = Modifier
+            .width(251.5.dp)
+            .height(49.dp)
+            .background(
+                color = Color(0xFFEDEDED),
+                shape = RoundedCornerShape(size = 10.dp)
+            ),
+        colors = ButtonDefaults.colors(
+            containerColor = Color.Transparent,
+            contentColor = Color.Black
+        ),
+        shape = ButtonDefaults.shape(
+            focusedShape = RoundedCornerShape(10.dp),
+
+        ),
+        onClick = { /*TODO*/ },
     ) {
         Text(
-            text = "명상 음악 소리",
-
+            modifier = Modifier.fillMaxWidth(),
+            textAlign = TextAlign.Center,
+            text = "로그 아웃",
             style = Typography.bodyMedium,
-            fontSize = 10.sp
+            fontSize = 12.5.sp
         )
-
 
     }
 }

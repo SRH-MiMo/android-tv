@@ -1,5 +1,6 @@
 package com.example.android_tv.screens.home
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,6 +19,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -37,6 +39,9 @@ import com.example.android_tv.widgets.TvButton
 @OptIn(ExperimentalTvMaterial3Api::class)
 @Composable
 fun HomeNestedScreen(navController: NavController) {
+
+    val context = LocalContext.current
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -107,7 +112,9 @@ fun HomeNestedScreen(navController: NavController) {
                         )
                         .padding(14.5.dp),
                     onClick = {
-//                        navController.navigate("home_screen")
+                        Toast.makeText(context, "led 슈웅", Toast.LENGTH_SHORT).show()
+
+                        
                     },
 
                     ) {

@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.android_tv"
-        minSdk = 21
+        minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -48,7 +48,7 @@ android {
     }
 }
 
-dependencies {
+dependencies { 
 
 
     implementation(libs.androidx.core.ktx)
@@ -66,4 +66,6 @@ dependencies {
     implementation(libs.line.awesome.icons)
 
     implementation(libs.bundles.compose.accompanist)
+
+    implementation(libs.zxing.android.embedded)
 }
