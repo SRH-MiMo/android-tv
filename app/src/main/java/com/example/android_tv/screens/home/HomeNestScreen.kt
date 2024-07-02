@@ -114,7 +114,12 @@ fun HomeNestedScreen(navController: NavController) {
                     onClick = {
                         Toast.makeText(context, "led 슈웅", Toast.LENGTH_SHORT).show()
 
-                        
+                        //TODO https 통신으로 Post요청보내기
+                        // des https://io.adafruit.com/api/v2/{유저네임}/feeds/{feed_key}/data
+                        // body { "value": "값(string)"}
+                        // refrence http://lhdangerous.godohosting.com/wiki/index.php/Adafruit_IO_(io.adafruit.com)_IoT_%ec%84%9c%eb%b2%84%eb%a1%9c_%ed%99%9c%ec%9a%a9%ed%95%98%ea%b8%b0#RESTful_API
+                        // refrence https://io.adafruit.com/api/docs
+
                     },
 
                     ) {
