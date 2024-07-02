@@ -19,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
@@ -38,7 +39,8 @@ fun SettingScreen() {
 
     Column(modifier = Modifier
         .fillMaxSize()
-        .background(Color.White).padding(5.dp)) {
+        .background(Color.White)
+        .padding(5.dp)) {
         Box(
             modifier = Modifier
                 .height(36.5.dp)
@@ -46,14 +48,15 @@ fun SettingScreen() {
         )
         Column(
             modifier = Modifier
-                .fillMaxSize().padding(24.dp),
+                .fillMaxSize()
+                .padding(24.dp),
 
             verticalArrangement = Arrangement.spacedBy(24.dp, Alignment.Top),
             horizontalAlignment = Alignment.Start,
 
         ) {
             Row {
-                Image(painter = R.drawable.logo, contentDescription = "로고 이미지")
+                Image(painter = painterResource(R.drawable.logo), contentDescription = "로고 이미지")
             }
             Column(
                 modifier = Modifier,
