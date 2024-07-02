@@ -11,6 +11,7 @@ import com.google.accompanist.navigation.animation.composable
 
 import com.example.android_tv.navigation.tabEnterTransition
 import com.example.android_tv.navigation.tabExitTransition
+import com.example.android_tv.screens.meditation.MeditationScreen
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
@@ -33,7 +34,12 @@ fun NestedHomeScreenNavigation(
             AnalyticsScreen()
         }
 
-
+        composable(
+            NestedScreens.Meditation.title,
+            enterTransition = { tabEnterTransition() },
+            exitTransition = { tabExitTransition() }) {
+            MeditationScreen()
+        }
 
         composable(
             NestedScreens.Setting.title,

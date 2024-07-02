@@ -4,4 +4,5 @@ sealed class NestedScreens(val title: String) {
     object Home : NestedScreens("home")
     object Analytics : NestedScreens("analytics")
     object Setting : NestedScreens("setting")
+    object Meditation : NestedScreens("meditation")
 }
