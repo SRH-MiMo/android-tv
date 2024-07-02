@@ -68,4 +68,11 @@ dependencies {
     implementation(libs.bundles.compose.accompanist)
 
     implementation(libs.zxing.android.embedded)
+
+
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+    implementation(libs.kotlinx.coroutines.android)
 }

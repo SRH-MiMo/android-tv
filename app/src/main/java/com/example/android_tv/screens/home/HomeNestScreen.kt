@@ -1,5 +1,7 @@
 package com.example.android_tv.screens.home
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -15,9 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -31,10 +31,16 @@ import androidx.navigation.NavController
 import androidx.tv.material3.ExperimentalTvMaterial3Api
 import androidx.tv.material3.Text
 import com.example.android_tv.R
+
+import com.example.android_tv.datas.RequestData
+import com.example.android_tv.datas.RetrofitInstance
 import com.example.android_tv.ui.theme.PurpleGradient
 
 import com.example.android_tv.ui.theme.Typography
 import com.example.android_tv.widgets.TvButton
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 @OptIn(ExperimentalTvMaterial3Api::class)
 @Composable
@@ -114,11 +120,24 @@ fun HomeNestedScreen(navController: NavController) {
                     onClick = {
                         Toast.makeText(context, "led 슈웅", Toast.LENGTH_SHORT).show()
 
-                        //TODO https 통신으로 Post요청보내기
-                        // des https://io.adafruit.com/api/v2/{유저네임}/feeds/{feed_key}/data
-                        // body { "value": "값(string)"}
-                        // refrence http://lhdangerous.godohosting.com/wiki/index.php/Adafruit_IO_(io.adafruit.com)_IoT_%ec%84%9c%eb%b2%84%eb%a1%9c_%ed%99%9c%ec%9a%a9%ed%95%98%ea%b8%b0#RESTful_API
-                        // refrence https://io.adafruit.com/api/docs
+                        //끝!
+
+                        val input = HashMap<String, Any>()
+                        input["value"] = "1"
+
+                        RetrofitInstance.api.sendData(input).enqueue(object : Callback<RequestData> {
+                            override fun onResponse(call: Call<RequestData>, response: Response<RequestData>) {
+                                if(response.isSuccessful){
+                                    Log.d(TAG, "onResponse: $response")
+                                }
+                            }
+
+                            override fun onFailure(call: Call<RequestData>, t: Throwable) {
+                                Log.d(TAG, "실패")
+
+                            }
+                        })
+
 
                     },
 
@@ -135,3 +154,5 @@ fun HomeNestedScreen(navController: NavController) {
         }
     }
 }
+
+
