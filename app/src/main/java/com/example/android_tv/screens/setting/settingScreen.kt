@@ -3,6 +3,7 @@
 package com.example.android_tv.screens.setting
 
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -29,6 +30,7 @@ import androidx.tv.material3.ButtonDefaults
 import androidx.tv.material3.ExperimentalTvMaterial3Api
 import androidx.tv.material3.MaterialTheme
 import androidx.tv.material3.Text
+import com.example.android_tv.R
 import com.example.android_tv.ui.theme.Typography
 
 @Composable
@@ -50,6 +52,9 @@ fun SettingScreen() {
             horizontalAlignment = Alignment.Start,
 
         ) {
+            Row {
+                Image(painter = R.drawable.logo, contentDescription = "로고 이미지")
+            }
             Column(
                 modifier = Modifier,
                 verticalArrangement = Arrangement.spacedBy(12.dp, Alignment.Top),

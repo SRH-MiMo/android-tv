@@ -34,6 +34,7 @@ import com.example.android_tv.screens.home.leftmenu.data.MenuData
 import com.example.android_tv.screens.home.leftmenu.model.MenuItem
 
 
+@OptIn(ExperimentalTvMaterial3Api::class)
 @Composable
 fun  HomeDrawer(
     content: @Composable () -> Unit,
