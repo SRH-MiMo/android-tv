@@ -38,7 +38,7 @@ fun NestedHomeScreenNavigation(
             NestedScreens.Meditation.title,
             enterTransition = { tabEnterTransition() },
             exitTransition = { tabExitTransition() }) {
-            MeditationScreen()
+            MeditationScreen(navController)
         }
 
         composable(

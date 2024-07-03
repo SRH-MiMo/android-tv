@@ -138,6 +138,8 @@ fun HomeNestedScreen(navController: NavController) {
                             }
                         })
 
+                        navController.navigate("meditation")
+
 
                     },
 
